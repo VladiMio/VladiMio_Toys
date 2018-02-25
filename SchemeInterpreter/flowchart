@@ -1,0 +1,2 @@
+
+program--[parse]--> abstract syntax tree --[eval]--> result
