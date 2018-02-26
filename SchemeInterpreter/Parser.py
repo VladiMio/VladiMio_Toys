@@ -31,7 +31,7 @@ def atom(token):
         try:
             return float(token)
         except ValueError:
-            return token  # Symbol(token)
+            return str(token)  # Symbol(token)
 
 
 program = "(begin (define r 10) (* pi (* r r)))"

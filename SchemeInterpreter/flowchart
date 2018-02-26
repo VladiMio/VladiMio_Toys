@@ -1,2 +1,6 @@
 
 program--[parse]--> abstract syntax tree --[eval]--> result
+
+Symbol = str          # Scheme符号由Python str表示
+List   = list         # Scheme列表由Python list表示
+Number = (int, float) # Scheme数字由Python的整数或浮点数表示
