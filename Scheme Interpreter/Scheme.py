@@ -146,14 +146,13 @@ def repl(prompt='scheme.py> '):
 
 
 def schemestr(exp):
-    "将一个Python对象转换回可以被Scheme读取的字符串。"
+    """将一个Python对象转换回可以被Scheme读取的字符串。"""
     if isinstance(exp, list):
         return '(' + ' '.join(map(schemestr, exp)) + ')'
     else:
         return str(exp)
 
-
-repl()
+# repl()
 # program = "(define a 1)"
 # print(scheme_eval(parse(program)))
 # print(scheme_eval(parse("a")))

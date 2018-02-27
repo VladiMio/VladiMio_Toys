@@ -5,6 +5,9 @@ cases = {
     "(- 1 2 3 4 5)": 1 - 2 - 3 - 4 - 5,
     "(* 1 2 3 4 5)": 1 * 2 * 3 * 4 * 5,
     "(/ 1 2 3 4 5)": 1 / 2 / 3 / 4 / 5,
+    "(define mkact (lambda (balance) (lambda (amt) (begin (set! balance (+ balance amt)) balance))))": None,
+    "(define act1 (mkact 100.00))": None,
+    "(act1 -20.00)": 80.0,
 }
 
 casesList = list(cases.items())
