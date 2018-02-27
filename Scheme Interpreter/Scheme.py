@@ -53,14 +53,30 @@ def scheme_eval(x, env=Env.global_env):
     elif x[0] == 'apply':  # apply
         exp = [x[1]]
         exp.extend([scheme_eval(arg, env) for arg in x[-1][1:]])
-        print(exp)
-        # exp = [x[1]].append([scheme_eval(arg, env) for arg in x[-1][1:]])
-        scheme_eval(exp, env)
+        return scheme_eval(exp, env)
     else:  # 过程调用
         proc = scheme_eval(x[0], env)
         args = [scheme_eval(arg, env) for arg in x[1:]]
         return proc(*args)
 
 
-program = "(apply + (list 1 2 3 4 5))"
+def repl(prompt='scheme.py> '):
+    """REPL的懒人实现。"""
+    while True:
+        val = scheme_eval(parse(input(prompt)))
+        if val is not None:
+            print(schemestr(val))
+
+
+def schemestr(exp):
+    "将一个Python对象转换回可以被Scheme读取的字符串。"
+    if isinstance(exp, list):
+        return '(' + ' '.join(map(schemestr, exp)) + ')'
+    else:
+        return str(exp)
+
+
+repl()
+# program = "(define a 1)"
 # print(scheme_eval(parse(program)))
+# print(scheme_eval(parse("a")))
