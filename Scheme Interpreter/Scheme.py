@@ -7,7 +7,6 @@ List = list
 Number = (int, float)
 
 
-# Env = dict  # 环境是{变量: 值}之间的映射
 class Procedure(object):
     """用户定义的Scheme过程。"""
 
@@ -152,7 +151,5 @@ def schemestr(exp):
     else:
         return str(exp)
 
-# repl()
-# program = "(define a 1)"
-# print(scheme_eval(parse(program)))
-# print(scheme_eval(parse("a")))
+
+repl()
